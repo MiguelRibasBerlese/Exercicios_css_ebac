@@ -1,0 +1,365 @@
+/* Ocean Background Styles */
+.ocean-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(0deg, #022244, #58c8da);
+  overflow: hidden;
+}
+
+/* Content overlay */
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* About section - social links */
+.about {
+  position: fixed;
+  z-index: 200;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transition: all 0.3s ease;
+}
+
+.about .bg_links {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.about .logo {
+  width: 40px;
+  height: 40px;
+  z-index: 9;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="10"/></svg>');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+}
+
+.about .social {
+  opacity: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.about:hover {
+  width: 120px;
+  height: 120px;
+}
+
+.about:hover .social {
+  opacity: 1;
+}
+
+.about:hover .social.portfolio {
+  right: 0;
+  bottom: 80px;
+}
+
+.about:hover .social.dribbble {
+  bottom: 40px;
+  right: 40px;
+}
+
+.about:hover .social.linkedin {
+  bottom: 0;
+  right: 80px;
+}
+
+/* Ocean animations */
+.ocean {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.ocean::before,
+.ocean::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 100px;
+  background: rgba(255,255,255,0.2);
+  bottom: -50px;
+  left: -10%;
+  border-radius: 100%;
+  animation: wave 10s ease-in-out infinite;
+}
+
+.ocean::after {
+  animation-delay: 5s;
+  opacity: 0.5;
+  bottom: -40px;
+}
+
+@keyframes wave {
+  0%, 100% { 
+    transform: rotate(-2deg); 
+  }
+  50% { 
+    transform: rotate(2deg); 
+  }
+}
+
+/* Bubbles */
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -10%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  animation: bubble 15s linear infinite;
+}
+
+.bubbles span:nth-child(1) {
+  width: 20px;
+  height: 20px;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.bubbles span:nth-child(2) {
+  width: 30px;
+  height: 30px;
+  left: 20%;
+  animation-delay: 2s;
+  animation-duration: 15s;
+}
+
+.bubbles span:nth-child(3) {
+  width: 15px;
+  height: 15px;
+  left: 35%;
+  animation-delay: 4s;
+  animation-duration: 10s;
+}
+
+.bubbles span:nth-child(4) {
+  width: 25px;
+  height: 25px;
+  left: 50%;
+  animation-delay: 6s;
+  animation-duration: 18s;
+}
+
+.bubbles span:nth-child(5) {
+  width: 40px;
+  height: 40px;
+  left: 65%;
+  animation-delay: 8s;
+  animation-duration: 14s;
+}
+
+.bubbles span:nth-child(6) {
+  width: 18px;
+  height: 18px;
+  left: 75%;
+  animation-delay: 10s;
+  animation-duration: 16s;
+}
+
+.bubbles span:nth-child(7) {
+  width: 35px;
+  height: 35px;
+  left: 85%;
+  animation-delay: 3s;
+  animation-duration: 20s;
+}
+
+.bubbles span:nth-child(8) {
+  width: 22px;
+  height: 22px;
+  left: 90%;
+  animation-delay: 7s;
+  animation-duration: 13s;
+}
+
+@keyframes bubble {
+  0% {
+    bottom: -10%;
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* Fish */
+.fish {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  border-radius: 50%;
+  top: 40%;
+  left: 100%;
+  z-index: 3;
+  animation: fish 25s linear infinite;
+  box-shadow: inset 0 -10px 0 rgba(0,0,0,0.2);
+}
+
+.fish::before,
+.fish::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: inherit;
+  border-radius: 20px;
+  right: -15px;
+  top: 20px;
+  transform: rotate(-20deg);
+  z-index: -1;
+}
+
+.fish::after {
+  top: 60px;
+  transform: rotate(20deg);
+}
+
+@keyframes fish {
+  0% {
+    left: 100%;
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1);
+  }
+  50.1% {
+    transform: scaleX(-1);
+  }
+  100% {
+    left: -150px;
+    transform: scaleX(-1);
+  }
+}
+
+/* Fish eyes */
+.fish span:nth-child(1),
+.fish span:nth-child(2) {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  top: 30px;
+  border: 2px solid #333;
+}
+
+.fish span:nth-child(1) {
+  left: 20px;
+}
+
+.fish span:nth-child(2) {
+  left: 45px;
+}
+
+/* Fish mouth */
+.fish span:nth-child(3) {
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  background: #8B4513;
+  border-radius: 50%;
+  top: 70px;
+  left: 10px;
+  border: 3px solid #ff6b35;
+}
+
+/* Fish bubbles */
+.fish span:nth-child(4),
+.fish span:nth-child(5),
+.fish span:nth-child(6) {
+  position: absolute;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  left: -30px;
+  animation: fishBubble 3s ease-in-out infinite;
+}
+
+.fish span:nth-child(4) {
+  width: 15px;
+  height: 15px;
+  top: 50px;
+  animation-delay: 0s;
+}
+
+.fish span:nth-child(5) {
+  width: 12px;
+  height: 12px;
+  top: 45px;
+  animation-delay: 0.5s;
+}
+
+.fish span:nth-child(6) {
+  width: 8px;
+  height: 8px;
+  top: 40px;
+  animation-delay: 1s;
+}
+
+@keyframes fishBubble {
+  0% {
+    left: -10px;
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    left: -60px;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .ocean::before,
+  .ocean::after,
+  .bubbles span,
+  .fish,
+  .fish span {
+    animation: none !important;
+  }
+}
